@@ -27,7 +27,7 @@ const fs = require('fs');
 // };
 
 
-// route
+// // route
 // const main = ctx => {
 //   if (ctx.request.path !== '/') {
 //     ctx.response.type = 'html';
@@ -37,33 +37,27 @@ const fs = require('fs');
 //   }
 // };
 
-// const route = require('koa-route');
+const route = require('koa-route');
 
-// const about = ctx => {
-//   ctx.response.type = 'html';
-//   ctx.response.body = '<h3>我不是主页</h3><br/><a href="/">Index Page</a>';
-// };
+const about = ctx => {
+  ctx.response.type = 'html';
+  ctx.response.body = '<h3>我不是主页</h3><br/><a href="/">Index Page</a>';
+};
 
-// const main = ctx => {
-//   ctx.response.body = 'Hello World';
-// };
+const main = ctx => {
+  ctx.response.body = 'Hello World';
+};
 
-// app.use(route.get('/', main));
-// app.use(route.get('/about', about));
+app.use(route.get('/', main));
+app.use(route.get('/about', about));
 
 // ctx.response.redirect('/');
-
-
-const path = require('path')
-const staticFile = require('koa-static');
-
-const main = staticFile(path.join(__dirname));
 
 
 app.use(main);
 
 app.listen(3000, () => {
-  console.log('3000 start...')
+  console.log('please open http://127.0.0.1:3000')
 })
 
 
